@@ -14,30 +14,21 @@ export default function FilterBar() {
 	}
 
 	return (
-		<div>
+		<div className='filter-bar'>
 			<button
-				style={{
-					backgroundColor: isActive('all') ? '#3b82f6' : '#e5e7eb',
-					color: isActive('all') ? 'white' : 'black',
-				}}
+				className={`filter-button ${isActive('all') ? 'active' : ''}`}
 				onClick={() => handleFilterChange('all')}
 			>
 				All
 			</button>
 			<button
-				style={{
-					backgroundColor: isActive('active') ? '#3b82f6' : '#e5e7eb',
-					color: isActive('active') ? 'white' : 'black',
-				}}
+				className={`filter-button ${isActive('active') ? 'active' : ''}`}
 				onClick={() => handleFilterChange('active')}
 			>
 				Active
 			</button>
 			<button
-				style={{
-					backgroundColor: isActive('completed') ? '#3b82f6' : '#e5e7eb',
-					color: isActive('completed') ? 'white' : 'black',
-				}}
+				className={`filter-button ${isActive('completed') ? 'active' : ''}`}
 				onClick={() => handleFilterChange('completed')}
 			>
 				Completed

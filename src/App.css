@@ -1,0 +1,405 @@
+/* ============================================
+   MAC OS SYSTEM 7/8 THEME
+   ============================================ */
+
+/* Reset */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+:root {
+	/* Mac Classic Colors */
+	--mac-gray: #c0c0c0;
+	--mac-gray-light: #dfdfdf;
+	--mac-gray-dark: #808080;
+	--mac-black: #000000;
+	--mac-white: #ffffff;
+	--mac-blue: #0000dd;
+	--mac-highlight: #000080;
+
+	/* Spacing */
+	--space-xs: 2px;
+	--space-sm: 4px;
+	--space-md: 8px;
+	--space-lg: 12px;
+	--space-xl: 16px;
+}
+
+body {
+	font-family: 'Geneva', 'Chicago', 'Monaco', 'Courier New', monospace;
+	background: repeating-linear-gradient(
+		0deg,
+		#ffffff 0px,
+		#ffffff 1px,
+		#f0f0f0 1px,
+		#f0f0f0 2px
+	);
+	background-color: var(--mac-gray-light);
+	color: var(--mac-black);
+	line-height: 1.4;
+	font-size: 12px;
+}
+
+/* ============================================
+   APP CONTAINER
+   ============================================ */
+
+.app-container {
+	max-width: 640px;
+	margin: 40px auto;
+	padding: var(--space-xl);
+}
+
+/* ============================================
+   HEADER
+   ============================================ */
+
+.app-header {
+	background: var(--mac-gray);
+	border: 2px solid var(--mac-black);
+	border-top-color: var(--mac-white);
+	border-left-color: var(--mac-white);
+	border-right-color: var(--mac-gray-dark);
+	border-bottom-color: var(--mac-gray-dark);
+	padding: var(--space-lg);
+	margin-bottom: var(--space-xl);
+	box-shadow:
+		inset 1px 1px 0 var(--mac-white),
+		inset -1px -1px 0 var(--mac-gray-dark);
+}
+
+.app-title {
+	font-size: 18px;
+	font-weight: bold;
+	margin-bottom: var(--space-sm);
+	text-align: center;
+	letter-spacing: 1px;
+}
+
+.app-subtitle {
+	font-size: 10px;
+	text-align: center;
+	color: var(--mac-gray-dark);
+}
+
+/* ============================================
+   STATS
+   ============================================ */
+
+.stats-container {
+	background: var(--mac-gray);
+	border: 2px solid var(--mac-black);
+	border-top-color: var(--mac-gray-dark);
+	border-left-color: var(--mac-gray-dark);
+	border-right-color: var(--mac-white);
+	border-bottom-color: var(--mac-white);
+	padding: var(--space-lg);
+	margin-bottom: var(--space-xl);
+	box-shadow:
+		inset -1px -1px 0 var(--mac-white),
+		inset 1px 1px 0 var(--mac-gray-dark);
+}
+
+.stats-title {
+	font-size: 12px;
+	font-weight: bold;
+	margin-bottom: var(--space-md);
+	border-bottom: 1px solid var(--mac-black);
+	padding-bottom: var(--space-sm);
+}
+
+.stats-grid {
+	display: flex;
+	gap: var(--space-lg);
+}
+
+.stats-item {
+	flex: 1;
+}
+
+.stats-label {
+	font-size: 10px;
+	color: var(--mac-gray-dark);
+	margin-bottom: var(--space-xs);
+}
+
+.stats-value {
+	font-size: 16px;
+	font-weight: bold;
+}
+
+/* ============================================
+   FILTER BAR
+   ============================================ */
+
+.filter-bar {
+	display: flex;
+	gap: var(--space-sm);
+	margin-bottom: var(--space-xl);
+}
+
+.filter-button {
+	flex: 1;
+	padding: var(--space-md) var(--space-lg);
+	background: var(--mac-gray);
+	border: 2px solid var(--mac-black);
+	border-top-color: var(--mac-white);
+	border-left-color: var(--mac-white);
+	border-right-color: var(--mac-gray-dark);
+	border-bottom-color: var(--mac-gray-dark);
+	font-family: inherit;
+	font-size: 11px;
+	font-weight: bold;
+	cursor: pointer;
+	box-shadow:
+		inset 1px 1px 0 var(--mac-white),
+		inset -1px -1px 0 var(--mac-gray-dark);
+}
+
+.filter-button:hover {
+	background: var(--mac-gray-light);
+}
+
+.filter-button:active {
+	border-top-color: var(--mac-gray-dark);
+	border-left-color: var(--mac-gray-dark);
+	border-right-color: var(--mac-white);
+	border-bottom-color: var(--mac-white);
+	box-shadow:
+		inset -1px -1px 0 var(--mac-white),
+		inset 1px 1px 0 var(--mac-gray-dark);
+}
+
+.filter-button.active {
+	background: var(--mac-black);
+	color: var(--mac-white);
+	border: 2px solid var(--mac-black);
+	box-shadow: none;
+}
+
+/* ============================================
+   TASK FORM
+   ============================================ */
+
+.task-form {
+	background: var(--mac-gray);
+	border: 2px solid var(--mac-black);
+	border-top-color: var(--mac-white);
+	border-left-color: var(--mac-white);
+	border-right-color: var(--mac-gray-dark);
+	border-bottom-color: var(--mac-gray-dark);
+	padding: var(--space-lg);
+	margin-bottom: var(--space-xl);
+	box-shadow:
+		inset 1px 1px 0 var(--mac-white),
+		inset -1px -1px 0 var(--mac-gray-dark);
+}
+
+.task-form-fields {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-md);
+}
+
+.task-form-input,
+.task-form-select {
+	padding: var(--space-md);
+	border: 2px solid var(--mac-black);
+	border-top-color: var(--mac-gray-dark);
+	border-left-color: var(--mac-gray-dark);
+	border-right-color: var(--mac-white);
+	border-bottom-color: var(--mac-white);
+	background: var(--mac-white);
+	font-family: inherit;
+	font-size: 11px;
+	box-shadow:
+		inset -1px -1px 0 var(--mac-white),
+		inset 1px 1px 0 var(--mac-gray-dark);
+}
+
+.task-form-input:focus,
+.task-form-select:focus {
+	outline: 2px solid var(--mac-blue);
+	outline-offset: -2px;
+}
+
+.task-form-submit {
+	padding: var(--space-md) var(--space-xl);
+	background: var(--mac-gray);
+	border: 2px solid var(--mac-black);
+	border-top-color: var(--mac-white);
+	border-left-color: var(--mac-white);
+	border-right-color: var(--mac-gray-dark);
+	border-bottom-color: var(--mac-gray-dark);
+	font-family: inherit;
+	font-size: 11px;
+	font-weight: bold;
+	cursor: pointer;
+	box-shadow:
+		inset 1px 1px 0 var(--mac-white),
+		inset -1px -1px 0 var(--mac-gray-dark);
+}
+
+.task-form-submit:hover {
+	background: var(--mac-gray-light);
+}
+
+.task-form-submit:active {
+	border-top-color: var(--mac-gray-dark);
+	border-left-color: var(--mac-gray-dark);
+	border-right-color: var(--mac-white);
+	border-bottom-color: var(--mac-white);
+	box-shadow:
+		inset -1px -1px 0 var(--mac-white),
+		inset 1px 1px 0 var(--mac-gray-dark);
+}
+
+/* ============================================
+   TASK LIST
+   ============================================ */
+
+.task-list-container {
+	background: var(--mac-white);
+	border: 2px solid var(--mac-black);
+	border-top-color: var(--mac-gray-dark);
+	border-left-color: var(--mac-gray-dark);
+	border-right-color: var(--mac-white);
+	border-bottom-color: var(--mac-white);
+	padding: var(--space-lg);
+	margin-bottom: var(--space-xl);
+	min-height: 200px;
+	box-shadow:
+		inset -1px -1px 0 var(--mac-white),
+		inset 1px 1px 0 var(--mac-gray-dark);
+}
+
+.task-list-title {
+	font-size: 12px;
+	font-weight: bold;
+	margin-bottom: var(--space-lg);
+	padding-bottom: var(--space-sm);
+	border-bottom: 1px solid var(--mac-black);
+}
+
+.task-list {
+	list-style: none;
+}
+
+.task-item {
+	padding: var(--space-md);
+	margin-bottom: var(--space-sm);
+	background: var(--mac-gray-light);
+	border: 1px solid var(--mac-gray-dark);
+	display: flex;
+	align-items: center;
+	gap: var(--space-md);
+}
+
+.task-item:hover {
+	background: var(--mac-gray);
+}
+
+.task-checkbox {
+	width: 14px;
+	height: 14px;
+	margin: 0;
+	cursor: pointer;
+}
+
+.task-content {
+	flex: 1;
+	display: flex;
+	align-items: center;
+	gap: var(--space-md);
+}
+
+.task-title {
+	flex: 1;
+	font-size: 11px;
+	cursor: pointer;
+}
+
+.task-title.completed {
+	text-decoration: line-through;
+	color: var(--mac-gray-dark);
+}
+
+.task-edit-input {
+	flex: 1;
+	padding: var(--space-sm);
+	border: 2px solid var(--mac-black);
+	border-top-color: var(--mac-gray-dark);
+	border-left-color: var(--mac-gray-dark);
+	border-right-color: var(--mac-white);
+	border-bottom-color: var(--mac-white);
+	font-family: inherit;
+	font-size: 11px;
+}
+
+.task-badge {
+	padding: 2px 6px;
+	font-size: 9px;
+	font-weight: bold;
+	border: 1px solid var(--mac-black);
+	background: var(--mac-white);
+}
+
+.task-badge.priority-high {
+	background: var(--mac-black);
+	color: var(--mac-white);
+}
+
+.task-badge.priority-medium {
+	background: var(--mac-gray-dark);
+	color: var(--mac-white);
+}
+
+.task-badge.priority-low {
+	background: var(--mac-white);
+	color: var(--mac-black);
+}
+
+.task-button {
+	padding: 4px 8px;
+	background: var(--mac-gray);
+	border: 1px solid var(--mac-black);
+	border-top-color: var(--mac-white);
+	border-left-color: var(--mac-white);
+	border-right-color: var(--mac-gray-dark);
+	border-bottom-color: var(--mac-gray-dark);
+	font-family: inherit;
+	font-size: 9px;
+	font-weight: bold;
+	cursor: pointer;
+	box-shadow:
+		inset 1px 1px 0 var(--mac-white),
+		inset -1px -1px 0 var(--mac-gray-dark);
+}
+
+.task-button:hover {
+	background: var(--mac-gray-light);
+}
+
+.task-button:active {
+	border-top-color: var(--mac-gray-dark);
+	border-left-color: var(--mac-gray-dark);
+	border-right-color: var(--mac-white);
+	border-bottom-color: var(--mac-white);
+	box-shadow:
+		inset -1px -1px 0 var(--mac-white),
+		inset 1px 1px 0 var(--mac-gray-dark);
+}
+
+.task-button.delete {
+	background: var(--mac-black);
+	color: var(--mac-white);
+}
+
+.task-empty {
+	text-align: center;
+	padding: var(--space-xl);
+	color: var(--mac-gray-dark);
+	font-size: 11px;
+}

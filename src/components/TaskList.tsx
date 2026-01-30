@@ -6,16 +6,13 @@ export default function TaskList() {
 	const [editingId, setEditingId] = useState<string | null>(null)
 	const [editText, setEditText] = useState('')
 
-	// TODO: Obtén filteredTasks del context
 	const { filteredTasks, dispatch } = useTaskContext()
 
-	// Entrar en modo edición
 	const startEdit = (task: Task) => {
 		setEditingId(task.id)
 		setEditText(task.title)
 	}
 
-	// Guardar cambios
 	const saveEdit = () => {
 		if (editText.trim()) {
 			dispatch({
@@ -30,23 +27,26 @@ export default function TaskList() {
 		setEditText('')
 	}
 
-	// Cancelar
 	const cancelEdit = () => {
 		setEditingId(null)
 		setEditText('')
 	}
 
-	// TODO: Si array vacío, return early con mensaje
 	if (!filteredTasks.length) {
-		return <p>No hay tareas actualmente</p>
+		return (
+			<div className='task-list-container'>
+				<h2 className='task-list-title'>Tasks</h2>
+				<p className='task-empty'>No tasks yet. Add one above!</p>
+			</div>
+		)
 	}
 
 	return (
-		<div>
-			<h2>Tasks</h2>
-			<ul>
+		<div className='task-list-container'>
+			<h2 className='task-list-title'>Tasks ({filteredTasks.length})</h2>
+			<ul className='task-list'>
 				{filteredTasks.map((task) => (
-					<li key={task.id}>
+					<li key={task.id} className='task-item'>
 						<input
 							type='checkbox'
 							checked={task.completed}
@@ -56,7 +56,9 @@ export default function TaskList() {
 									payload: task.id,
 								})
 							}
+							className='task-checkbox'
 						/>
+
 						{editingId === task.id ? (
 							<>
 								<input
@@ -67,28 +69,33 @@ export default function TaskList() {
 										if (e.key === 'Escape') cancelEdit()
 									}}
 									autoFocus
+									className='task-edit-input'
 								/>
-								<button onClick={cancelEdit}>Cancel</button>
-								<button onClick={saveEdit}>Save</button>
+								<button onClick={cancelEdit} className='task-button'>
+									Cancel
+								</button>
+								<button onClick={saveEdit} className='task-button'>
+									Save
+								</button>
 							</>
 						) : (
 							<>
-								<span
-									style={
-										task.completed
-											? { textDecoration: 'line-through' }
-											: { fontWeight: 'bold' }
-									}
-								>
+								<div className='task-content'>
 									<span
 										onClick={() => startEdit(task)}
+										className={`task-title ${task.completed ? 'completed' : ''}`}
 										style={{ cursor: 'pointer' }}
 									>
 										{task.title}
 									</span>
-									<span style={{ paddingLeft: '2px' }}>{task.priority}</span>
-									<span style={{ paddingLeft: '2px' }}>{task.category}</span>
-								</span>
+
+									<span className={`task-badge priority-${task.priority}`}>
+										{task.priority.toUpperCase()}
+									</span>
+
+									<span className='task-badge'>{task.category}</span>
+								</div>
+
 								<button
 									onClick={() =>
 										dispatch({
@@ -96,6 +103,7 @@ export default function TaskList() {
 											payload: task.id,
 										})
 									}
+									className='task-button delete'
 								>
 									Delete
 								</button>
