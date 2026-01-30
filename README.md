@@ -1,73 +1,47 @@
-# React + TypeScript + Vite
+# 🖥️ TaskFlow - Mac OS Classic Edition
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A retro-styled task management app inspired by Mac OS System 7/8 aesthetics.
 
-Currently, two official plugins are available:
+![TaskFlow Screenshot](./public/screenshot.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Features
 
-## React Compiler
+- ✅ **CRUD Operations** - Create, read, update, and delete tasks
+- 🎯 **Priority Levels** - High, Medium, Low
+- 📁 **Categories** - Work, Personal, Shopping
+- 🔍 **Filters** - View All, Active, or Completed tasks
+- 💾 **localStorage** - Tasks persist across sessions
+- 📊 **Statistics** - Real-time task counters
+- ✏️ **Inline Edit** - Click on task title to edit
+- 🎨 **Retro UI** - Authentic Mac OS 90s design
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🛠️ Tech Stack
 
-## Expanding the ESLint configuration
+- **React 18** - UI library
+- **TypeScript** - Type safety
+- **Vite** - Build tool
+- **useReducer + Context** - State management
+- **CSS3** - Mac OS Classic styling
+- **localStorage API** - Data persistence
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🚀 Live Demo
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+[View Live App](https://taskflow-three-orpin.vercel.app/)
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## 💻 Local Development
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+# Clone
+git clone https://github.com/wizozero/taskflow.git
+cd taskflow
+
+# Install
+npm install
+
+# Run
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 📝 License
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+MIT
