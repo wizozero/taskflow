@@ -1,6 +1,7 @@
 import {
 	createContext,
 	useContext,
+	useEffect,
 	useReducer,
 	type Dispatch,
 	type ReactNode,
@@ -93,11 +94,26 @@ function taskReducer(state: TaskState, action: TaskAction): TaskState {
 // ============================================
 
 export function TaskProvider({ children }: { children: ReactNode }) {
+	const loadTasksFromStorage = () => {
+		try {
+			const stored = localStorage.getItem('tasks')
+			return stored ? JSON.parse(stored) : []
+		} catch (error) {
+			console.log('Error loading tasks:', error)
+		}
+	}
+
 	// 1. useReducer con estado inicial
 	const [state, dispatch] = useReducer(taskReducer, {
-		tasks: [],
+		tasks: loadTasksFromStorage(),
 		filter: 'all',
 	})
+
+	// Guardar tasks en localstorage
+
+	useEffect(() => {
+		localStorage.setItem('tasks', JSON.stringify(state.tasks))
+	}, [state.tasks])
 
 	// 2. Calcular filteredTasks
 	const filteredTasks = state.tasks.filter((task) => {
